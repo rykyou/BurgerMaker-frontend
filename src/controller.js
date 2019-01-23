@@ -19,7 +19,7 @@ class Controller {
     .then(res => res.json())
     .then(json => {
       json.forEach((burger) => {
-        let burgerInstance = new Burger(burger.id, burger.name, burger.owner_name)
+        let burgerInstance = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
         burgerInstance.render()
       })
     })
@@ -35,25 +35,44 @@ class Controller {
       body: JSON.stringify(burgerObj)
     }).then(res => res.json())
       .then(burger => {
-        let newBurger = new Burger(burger.id, burger.name, burger.owner_name)
+        let newBurger = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
+
         newBurger.render()
       })
   }
 
   handleBurgerSubmit(e){
     e.preventDefault()
+
     const burgerForm = e.target
     if (burgerForm.dataset.id != '') {
-      const updatedBurger = new Burger(burgerForm.dataset.id, burgerForm[0].value, burgerForm[1].value);
-      updatedBurger.update();
+      const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
+      const updatedBurger = new Burger(burgerForm.dataset.id, burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
+      updatedBurger.update()
+      updatedBurger.renderUpdatedBurger()
+      // document.querySelector(`.burger-image-${updatedBurger.id}`).remove()
+      // updatedBurger.renderBurgerImage()
       burgerForm.dataset.id = '';
-    } else {
-      const newBurgerData = {
-        name: burgerForm[0].value,
-        owner_name: burgerForm[1].value
-      }
 
-      this.createBurger(newBurgerData)
+
+
+
+    } else {
+      const burgerName = burgerForm[0].value
+      const burgerCreatorName = burgerForm[1].value
+      const burgerIngredientsIds = this.collectIngredientsIdIntoArray()
+
+      if (burgerName != '' && burgerCreatorName != '' && burgerIngredientsIds.length > 0) {
+        const newBurgerData = {
+          burger: {
+            name: burgerName,
+            owner_name: burgerCreatorName,
+            ingredients: burgerIngredientsIds
+          }
+        }
+        this.createBurger(newBurgerData)
+        document.querySelector('.burger-display').innerHTML = ''
+      }
     }
     burgerForm.reset();
   }
@@ -63,7 +82,6 @@ class Controller {
 
     const burgerForm = document.createElement('form')
     burgerForm.dataset.id = ''
-    // add a dataset.id value of = ''
 
     const burgerNameInput = document.createElement('input')
     burgerNameInput.id = `burger-name-input`
@@ -83,10 +101,18 @@ class Controller {
     burgerFormContainer.appendChild(burgerForm)
 
     burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
-    // burgerForm.addEventListener('submit', () => {  this.handleBurgerSubmit()})
   }
 
+  collectIngredientsIdIntoArray() {
+    const burgerDisplayDiv = document.querySelector('.burger-display');
+    let ingredientsArray = [];
 
+    burgerDisplayDiv.childNodes.forEach(ingredientElement => {
+      ingredientsArray.push(parseInt((ingredientElement.id).split("image-")[1]))
+    })
+
+    return ingredientsArray
+  }
 
 
 }

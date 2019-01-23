@@ -14,8 +14,25 @@ class Ingredient {
     let ingredientButton = document.createElement('button')
     ingredientButton.innerText = this.name
 
+    ingredientButton.addEventListener('click', () => this.renderIngredientToDisplay())
+
     div.appendChild(ingredientButton)
     ingredientUl.appendChild(div)
+  }
+
+  renderIngredientToDisplay() {
+    const burgerDisplayDiv = document.querySelector('.burger-display')
+
+    const ingredientImage = document.createElement('img')
+    ingredientImage.src = this.image_url
+    ingredientImage.id = `ingredient-image-${this.id}`
+    ingredientImage.addEventListener('click', () => this.removeIngredient())
+
+    burgerDisplayDiv.appendChild(ingredientImage)
+  }
+
+  removeIngredient() {
+    document.querySelector(`#ingredient-image-${this.id}`).remove()
   }
 }
 

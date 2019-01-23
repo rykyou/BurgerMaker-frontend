@@ -1,0 +1,13 @@
+.burger-card {
+  padding: 15px;
+}
+
+.burger-display {
+  border: 2px solid grey;
+}
+
+.ingredient-image {
+  position: sticky;
+  width: 30%;
+  height: auto;
+}
