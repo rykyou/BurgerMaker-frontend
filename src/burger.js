@@ -90,13 +90,14 @@ class Burger {
     const div = document.createElement('div')
 
     div.classList.add(`burger-image-${this.id}`)
-
+    
     this.ingredients.forEach(ingredient => {
       if (ingredient.toFixed) {
         ingredient = Ingredient.all.find(ing => ing.id === ingredient)
       }
       const image = document.createElement('img')
       image.classList.add('ingredient-image')
+      image.dataset.id = ingredient.id
       image.src = ingredient.image_url
 
       div.appendChild(image)
@@ -121,10 +122,14 @@ class Burger {
     while (burgerDisplayDiv.firstChild) {
       burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)}
 
-    // collectIngredientsIdIntoArray()
+    const ingredientImgNodes = document.querySelector(`.burger-image-${this.id}`).childNodes
+    let imageIds = []
+    ingredientImgNodes.forEach(imgNode => {
+      imageIds.push(parseInt(imgNode.dataset.id))
+    })
 
-    this.ingredients.forEach((ingredient) => {
-      const ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
+    imageIds.forEach((imgId) => {
+      const ingredientInstance = Ingredient.all.find(x => x.id === imgId)
       ingredientInstance.renderIngredientToDisplay()
     })
 

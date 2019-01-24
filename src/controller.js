@@ -47,9 +47,9 @@ class Controller {
     if (burgerForm.dataset.id != '') {
 
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
-      const updatedBurger = new Burger(burgerForm.dataset.id, burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
+      const updatedBurger = new Burger(parseInt(burgerForm.dataset.id), burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()
-      updatedBurger.renderUpdatedBurger()
+      // updatedBurger.renderUpdatedBurger()
       // document.querySelector(`.burger-image-${updatedBurger.id}`).remove()
       // updatedBurger.renderBurgerImage()
       burgerForm.dataset.id = '';
