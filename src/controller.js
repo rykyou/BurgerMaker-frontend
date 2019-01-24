@@ -46,6 +46,8 @@ class Controller {
 
     const burgerForm = e.target
     if (burgerForm.dataset.id != '') {
+      debugger
+      
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
       const updatedBurger = new Burger(burgerForm.dataset.id, burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()

@@ -86,7 +86,7 @@ class Burger {
   renderBurgerImage() {
     const div = document.createElement('div')
 
-    div.classList.add(`burger-image-${this.id}`)
+    div.classList.add(`burger-image`)
 
     this.ingredients.forEach(ingredient => {
       if (ingredient.toFixed) {
@@ -115,6 +115,10 @@ class Burger {
     burgerOwnerInput.value = burgerDiv.children[1].innerText
 
     const burgerDisplayDiv = document.querySelector('.burger-display')
+
+    while (burgerDisplayDiv.firstChild) {
+      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)}
+
     this.ingredients.forEach((ingredient) => {
       const ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
       ingredientInstance.renderIngredientToDisplay()
