@@ -22,7 +22,9 @@ class Burger {
 
     const editButton = document.createElement('button')
     editButton.innerText = 'Edit Burger'
-    editButton.addEventListener('click', () => this.handleEditBurgerButton())
+    editButton.addEventListener('click', () => {
+      this.handleEditBurgerButton()
+    })
 
     const deleteButton = document.createElement('button')
     deleteButton.innerText = 'Delete Burger'
@@ -32,9 +34,7 @@ class Burger {
     burgerDiv.appendChild(burgerTag)
     burgerDiv.appendChild(ownerTag)
 
-    if (this.ingredients) {
-      burgerDiv.appendChild(this.renderBurgerImage())
-    }
+    burgerDiv.appendChild(this.renderBurgerImage())
 
     burgerDiv.appendChild(editButton)
     burgerDiv.appendChild(deleteButton)
@@ -63,13 +63,16 @@ class Burger {
     burgerDiv.children[0].innerText = this.name
     burgerDiv.children[1].innerText = this.owner_name
 
-    const burgerImgDiv = document.querySelector(`.burger-image-${this.id}`)
+    // const burgerImgDiv = document.querySelector(`.burger-image-${this.id}`)
 
-    while (burgerImgDiv.firstChild) {
-    	burgerImgDiv.removeChild(burgerImgDiv.firstChild);
-	  }
+    // while (burgerImgDiv.firstChild) {
+    // 	burgerImgDiv.removeChild(burgerImgDiv.firstChild);
+	  // }
+    //
+    // burgerImgDiv.appendChild(this.renderBurgerImage())
 
-    burgerImgDiv.appendChild(this.renderBurgerImage())
+    document.querySelector(`.burger-image-${this.id}`).remove()
+    burgerDiv.insertBefore(this.renderBurgerImage(), burgerDiv.children[2])
 
     const submitButton = document.querySelector('#submit-button')
     submitButton.innerText = 'Create Burger'
@@ -86,7 +89,7 @@ class Burger {
   renderBurgerImage() {
     const div = document.createElement('div')
 
-    div.classList.add(`burger-image`)
+    div.classList.add(`burger-image-${this.id}`)
 
     this.ingredients.forEach(ingredient => {
       if (ingredient.toFixed) {
@@ -94,7 +97,6 @@ class Burger {
       }
       const image = document.createElement('img')
       image.classList.add('ingredient-image')
-
       image.src = ingredient.image_url
 
       div.appendChild(image)
@@ -118,6 +120,8 @@ class Burger {
 
     while (burgerDisplayDiv.firstChild) {
       burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)}
+
+    // collectIngredientsIdIntoArray()
 
     this.ingredients.forEach((ingredient) => {
       const ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)

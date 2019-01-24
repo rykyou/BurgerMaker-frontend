@@ -8,6 +8,13 @@
   border: 2px solid grey;
 }
 
+.burger-display img {
+  height: 50%;
+  width: 50%;
+  /* max-width: 300px;
+  max-height: 300px; */
+}
+
 .ingredient-image {
   position: sticky;
   width: 30%;

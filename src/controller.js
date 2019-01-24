@@ -36,7 +36,6 @@ class Controller {
     }).then(res => res.json())
       .then(burger => {
         let newBurger = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
-
         newBurger.render()
       })
   }
@@ -46,8 +45,7 @@ class Controller {
 
     const burgerForm = e.target
     if (burgerForm.dataset.id != '') {
-      debugger
-      
+
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
       const updatedBurger = new Burger(burgerForm.dataset.id, burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()
