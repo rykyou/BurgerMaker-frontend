@@ -37,7 +37,10 @@ class Ingredient {
   }
 
   removeIngredient() {
-    
+
+
+
+
     if (document.querySelector('.burger-display').children.length === 0) {
       document.querySelector('#burger-form').classList.add('hidden')
     }
@@ -46,6 +49,10 @@ class Ingredient {
     if (burgerDisplayDiv.lastChild) {
       burgerDisplayDiv.lastChild.remove()
 	  }
+
+    if (document.querySelector('.burger-display').children.length === 0) {
+      document.querySelector('#burger-form').classList.add('hidden')
+    }
   }
 }
 
