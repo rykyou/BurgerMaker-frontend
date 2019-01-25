@@ -1,7 +1,7 @@
 .burger-card {
   border-radius: 5px;
   border: 2px solid grey;
-  height: 250px;
+  height: 270px;
   padding: 5px;
   margin: 10px;
   align-items: center;
@@ -38,7 +38,7 @@
 
 .burger-image-container{
   border: 2px solid grey;
-  height: 130px;
+  height: 150px;
 }
 
 .burger-display {
@@ -56,14 +56,19 @@
   bottom: 50px;
 }
 
+.burger-image-container {
+  position: relative;
+}
+
 .ingredient-image {
   position: absolute;
   display: block;
-  width: 30%;
+  width: 70%;
   height: auto;
   left: 0;
   right: 0;
   margin: auto;
+  bottom: 0;
 }
 
 #ingredients-list div{
@@ -105,7 +110,7 @@
 }
 
 
-/* Ingredient placement when being rendered to BIG DIV*/
+/* Ingredient placement when being rendered to BIG DIV */
 img.ingr-placement-0 {
   margin-bottom: 0px;
 }
@@ -147,12 +152,45 @@ img.ingr-placement-9 {
 }
 
 
-/* #position-card-image img {
-  width: 60%;
-  height: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 50px;
-} */
+
+
+/* Ingredient placement when being rendered to SMALL CARDS */
+img.ingredient-image.ingr-placement-0 {
+  margin-bottom: 15px;
+}
+
+img.ingredient-image.ingr-placement-1 {
+  margin-bottom: 23px;
+}
+
+img.ingredient-image.ingr-placement-2 {
+  margin-bottom: 31px;
+}
+
+img.ingredient-image.ingr-placement-3 {
+  margin-bottom: 39px;
+}
+
+img.ingredient-image.ingr-placement-4 {
+  margin-bottom: 47px;
+}
+
+img.ingredient-image.ingr-placement-5 {
+  margin-bottom: 55px;
+}
+
+img.ingredient-image.ingr-placement-6 {
+  margin-bottom: 63px;
+}
+
+img.ingredient-image.ingr-placement-7 {
+  margin-bottom: 71px;
+}
+
+img.ingredient-image.ingr-placement-8 {
+  margin-bottom: 79px;
+}
+
+img.ingredient-image.ingr-placement-9 {
+  margin-bottom: 87px;
+}
