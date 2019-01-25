@@ -116,12 +116,12 @@ class Controller {
 
   renderOnlyDisplay(){
     const display = document.querySelector('.burger-display')
+    display.classList.add('d-flex')
+    display.classList.add('justify-content-center')
 
     const welcomeMessage = document.createElement('div')
-    welcomeMessage.classList.add('welcomeMessage')
-    welcomeMessage.innerText = 'Welcome to our App! Click here to start'
-
     const startButton = document.createElement('button')
+
     const iTag = document.createElement('i')
 
     startButton.classList.add('btn')
@@ -131,7 +131,7 @@ class Controller {
     iTag.classList.add('kitty-button')
 
     startButton.appendChild(iTag)
-    
+
 
     display.appendChild(welcomeMessage)
     display.appendChild(startButton)

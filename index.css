@@ -1,6 +1,6 @@
-.container {
+.whole-page {
   background-color: #edf79945;
-  height: 100%
+  height: 100vh;
 }
 
 ul.burgers-list {
@@ -66,8 +66,10 @@ ul.burgers-list {
 
 .burger-display {
   margin-top: 10px;
-  height: 475px;
+  height: auto;
+  overflow: auto;
   border: 2px solid grey;
+  background-color: white;
 }
 
 .burger-display img {
@@ -78,10 +80,12 @@ ul.burgers-list {
   right: 0;
   margin: auto;
   bottom: 50px;
+  /* background-color:   */
 }
 
 .burger-image-container {
   position: relative;
+  background: white;
 }
 
 .ingredient-image {
@@ -220,7 +224,7 @@ img.ingredient-image.ingr-placement-9 {
 
 .sidenav-left {
   height: 100%;
-  width: 160px;
+  width: 12%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -245,7 +249,7 @@ img.ingredient-image.ingr-placement-9 {
 
 .sidenav-right {
   height: 100%;
-  width: 160px;
+  width: 12%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -268,6 +272,10 @@ img.ingredient-image.ingr-placement-9 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.header {
+  background-color: #22f83375;
 }
 
 .kitty-button {
