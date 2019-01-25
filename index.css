@@ -1,6 +1,6 @@
 .whole-page {
   background-color: #edf79945;
-  height: 100vh;
+  height: 200vh;
 }
 
 ul.burgers-list {
@@ -309,4 +309,8 @@ img.ingredient-image.ingr-placement-9 {
   color: #513eef;
   font-size: 60px;
   cursor: pointer;
+}
+
+.block {
+  display: block;
 }

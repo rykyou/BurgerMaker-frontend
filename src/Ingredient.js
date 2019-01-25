@@ -25,23 +25,33 @@ class Ingredient {
 
   renderIngredientToDisplay() {
     const burgerDisplayDiv = document.querySelector('.burger-display')
+
     if (burgerDisplayDiv.children.length === 0) {
       document.querySelector('#burger-form').classList.remove('hidden')
     }
-    const ingredientImage = document.createElement('img')
-    ingredientImage.src = this.image_url
-    ingredientImage.id = `ingredient-image-${this.id}`
-    ingredientImage.classList.add(`ingr-placement-${burgerDisplayDiv.children.length}`)
-    ingredientImage.addEventListener('click', () => this.removeIngredient())
 
-    burgerDisplayDiv.appendChild(ingredientImage)
+    if (burgerDisplayDiv.children.length < 10) {
+      const ingredientImage = document.createElement('img')
+      ingredientImage.src = this.image_url
+      ingredientImage.id = `ingredient-image-${this.id}`
+      ingredientImage.classList.add(`ingr-placement-${burgerDisplayDiv.children.length}`)
+      ingredientImage.addEventListener('click', () => this.removeIngredient())
+
+      burgerDisplayDiv.appendChild(ingredientImage)
+    } else {
+      const modal = document.getElementById('exampleModalCenter')
+      modal.classList.add("show")
+      modal.classList.add("block")
+
+      const xBtn = document.getElementById('exit-modal')
+      xBtn.addEventListener('click', () => {
+        modal.classList.remove("show")
+        modal.classList.remove("block")
+      })
+    }
   }
 
   removeIngredient() {
-
-
-
-
     if (document.querySelector('.burger-display').children.length === 0) {
       document.querySelector('#burger-form').classList.add('hidden')
     }
