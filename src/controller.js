@@ -6,6 +6,11 @@ class Controller {
     fetch(`http://localhost:3000/ingredients`)
     .then(res => res.json())
     .then(json => {
+
+      let h2 = document.createElement('h2')
+      h2.innerText = 'Choose your ingredients:'
+      document.querySelector('.ingredients-list-container ').insertBefore(h2, document.querySelector('.ingredients-list-container ').children[0])
+
       json.forEach((ingredient) => {
         let ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
         ingredientInstance.render()
@@ -118,29 +123,33 @@ class Controller {
     const display = document.querySelector('.burger-display')
     display.classList.add('d-flex')
     display.classList.add('justify-content-center')
+    display.id = 'welcome-display'
 
-    const welcomeMessage = document.createElement('div')
-    const startButton = document.createElement('button')
+    const div = document.createElement('div')
 
-    const iTag = document.createElement('i')
+    const burgerGif = document.createElement('img')
+    burgerGif.src = 'images/burger-logo.gif'
+    // const startButton = document.createElement('button')
+    // const iTag = document.createElement('i')
+    // startButton.classList.add('btn')
 
-    startButton.classList.add('btn')
+    // iTag.classList.add('fas')
+    // iTag.classList.add('fa-cat')
+    // iTag.classList.add('kitty-button')
 
-    iTag.classList.add('fas')
-    iTag.classList.add('fa-cat')
-    iTag.classList.add('kitty-button')
-
-    startButton.appendChild(iTag)
+    // startButton.appendChild(iTag)
 
 
-    display.appendChild(welcomeMessage)
-    display.appendChild(startButton)
+    div.appendChild(burgerGif)
+    display.appendChild(div)
+    // display.appendChild(startButton)
 
-    startButton.addEventListener('click', () => {this.removeHiddenProperties()})
+    div.addEventListener('click', () => {this.removeHiddenProperties()})
   }
 
   removeHiddenProperties(){
     const display = document.querySelector('.burger-display')
+    display.removeAttribute('id')
 
     while (display.firstChild) {
     	display.removeChild(display.firstChild)

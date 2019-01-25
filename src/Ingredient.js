@@ -8,6 +8,7 @@ class Ingredient {
 
   render(){
     let ingredientUl = document.getElementById('ingredients-list')
+
     let div = document.createElement('div')
     div.id = `ingredient-${this.id}`
 

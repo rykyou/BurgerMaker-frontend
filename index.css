@@ -83,6 +83,11 @@ ul.burgers-list {
   /* background-color:   */
 }
 
+#welcome-display img {
+  position: static;
+  margin-left: 20%;
+}
+
 .burger-image-container {
   position: relative;
   background: white;
@@ -100,7 +105,12 @@ ul.burgers-list {
 }
 
 #ingredients-list {
-  padding-top: 30px;
+
+}
+
+.ingredients-list-container h2 {
+  margin-top: 20px;
+  text-align: center;
 }
 
 #ingredients-list div{
@@ -275,7 +285,8 @@ img.ingredient-image.ingr-placement-9 {
 }
 
 .header {
-  background-color: #22f83375;
+  background-image: url('images/burger_nav.png');
+  height: 100px;
 }
 
 .kitty-button {
