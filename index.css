@@ -72,16 +72,8 @@
 }
 
 #ingredients-list div{
+  /* margin: 30px; */
   display: inline;
-}
-
-#ingredient-1 button {
-  display: block;
-}
-
-#ingredient-9 button{
-  display: block;
-
 }
 
 #burger-form {
@@ -106,7 +98,7 @@
   border-radius: 5px;
   width: 140px;
   height: 40px;
-  margin: 50px;
+  margin: 50px 5px;
 }
 
 
