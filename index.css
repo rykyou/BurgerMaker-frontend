@@ -338,3 +338,7 @@ img.ingredient-image.ingr-placement-9 {
   background-image: url('images/burger_nav.png');
   height: 100px;
 }
+
+.block {
+  display: block;
+}
