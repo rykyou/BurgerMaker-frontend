@@ -133,7 +133,10 @@ class Burger {
 
   handleEditBurgerButton(){
     const burgerForm = document.querySelector('form')
+    
     burgerForm.dataset.id = this.id
+
+    burgerForm.parentElement.classList.remove('hidden')
 
     const burgerDiv = document.querySelector(`#burger-${this.id}`)
 

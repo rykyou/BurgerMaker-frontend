@@ -24,7 +24,9 @@ class Ingredient {
 
   renderIngredientToDisplay() {
     const burgerDisplayDiv = document.querySelector('.burger-display')
-
+    if (burgerDisplayDiv.children.length === 0) {
+      document.querySelector('#burger-form').classList.remove('hidden')
+    }
     const ingredientImage = document.createElement('img')
     ingredientImage.src = this.image_url
     ingredientImage.id = `ingredient-image-${this.id}`
@@ -36,6 +38,10 @@ class Ingredient {
 
   removeIngredient() {
     document.querySelector(`#ingredient-image-${this.id}`).remove()
+
+    if (document.querySelector('.burger-display').children.length === 0) {
+      document.querySelector('#burger-form').classList.add('hidden')
+    }
   }
 }
 

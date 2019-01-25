@@ -54,9 +54,6 @@ class Controller {
       // updatedBurger.renderBurgerImage()
       burgerForm.dataset.id = '';
 
-
-
-
     } else {
       const burgerName = burgerForm[0].value
       const burgerCreatorName = burgerForm[1].value
@@ -75,10 +72,12 @@ class Controller {
       }
     }
     burgerForm.reset();
+    burgerForm.parentElement.classList.add('hidden')
   }
 
   renderBurgerForm(){
     const burgerFormContainer = document.getElementById('burger-form')
+    burgerFormContainer.classList.add('hidden')
 
     const burgerForm = document.createElement('form')
     burgerForm.dataset.id = ''
