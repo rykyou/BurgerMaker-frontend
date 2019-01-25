@@ -39,12 +39,6 @@ class Ingredient {
 
   removeIngredient() {
 
-
-
-
-    if (document.querySelector('.burger-display').children.length === 0) {
-      document.querySelector('#burger-form').classList.add('hidden')
-    }
     const burgerDisplayDiv = document.querySelector(`.burger-display`)
 
     if (burgerDisplayDiv.lastChild) {

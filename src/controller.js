@@ -7,7 +7,7 @@ class Controller {
     .then(res => res.json())
     .then(json => {
 
-      let h2 = document.createElement('h2')
+      const h2 = document.createElement('h2')
       h2.innerText = 'Choose your ingredients:'
       document.querySelector('.ingredients-list-container ').insertBefore(h2, document.querySelector('.ingredients-list-container ').children[0])
 
@@ -22,7 +22,13 @@ class Controller {
     fetch(`http://localhost:3000/burgers`)
     .then(res => res.json())
     .then(json => {
+      const h2 = document.createElement('h2')
+      h2.innerText = 'Burger Creations'
+
+      document.querySelector('.burgers-list-container ').insertBefore(h2, document.querySelector('.burgers-list-container ').children[0])
+
       json.forEach((burger) => {
+
         let burgerInstance = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
         burgerInstance.render()
       })
@@ -53,9 +59,6 @@ class Controller {
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
       const updatedBurger = new Burger(parseInt(burgerForm.dataset.id), burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()
-      // updatedBurger.renderUpdatedBurger()
-      // document.querySelector(`.burger-image-${updatedBurger.id}`).remove()
-      // updatedBurger.renderBurgerImage()
       burgerForm.dataset.id = '';
 
     } else {
@@ -64,6 +67,7 @@ class Controller {
       const burgerIngredientsIds = this.collectIngredientsIdIntoArray()
 
       if (burgerName != '' && burgerCreatorName != '' && burgerIngredientsIds.length > 0) {
+
         const newBurgerData = {
           burger: {
             name: burgerName,
@@ -148,6 +152,7 @@ class Controller {
   }
 
   removeHiddenProperties(){
+
     const display = document.querySelector('.burger-display')
     display.removeAttribute('id')
 

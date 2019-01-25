@@ -1,6 +1,17 @@
+@font-face { font-family: Balonku; src: url('Balonku.otf'); }
+
 .whole-page {
   background-color: #edf79945;
-  height: 100vh;
+  height: 200vh;
+}
+
+#header-name {
+  font-family: Balonku;
+  color: grey;
+  text-shadow: 3px grey;
+  font-size: 90px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 ul.burgers-list {
@@ -19,10 +30,11 @@ ul.burgers-list {
   margin-right: 20px;
   float: left;
   width: 40%;
+  background-color: #f6b729;
 }
 
 .burger-card:hover{
-  background-color: #cceffc;
+  background-color: #e87c2f;
 }
 
 .burger-card h5 {
@@ -57,6 +69,15 @@ ul.burgers-list {
 .burgers-list-container {
   margin-top: 30px;
   padding: 0 30px;
+}
+
+.burgers-list-container h2 {
+  font-family: Balonku;
+  color: grey;
+  text-shadow: 3px grey;
+  font-size: 50px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .burger-image-container{
@@ -104,11 +125,30 @@ ul.burgers-list {
   bottom: 0;
 }
 
+/* ingredients buttons */
+.btn-outline-primary {
+  border-radius: 5px;
+  width: 140px;
+  height: 40px;
+  margin: 50px 5px;
+  border-color: #9d2437;
+  color: #9d2437;
+}
+
+.btn-outline-primary:hover {
+  background-color: #5a0505;
+  border-color: #ff0000;
+}
+
 #ingredients-list {
 
 }
 
 .ingredients-list-container h2 {
+  font-family: Balonku;
+  color: grey;
+  text-shadow: 3px grey;
+  font-size: 30px;
   margin-top: 20px;
   text-align: center;
 }
@@ -136,13 +176,7 @@ ul.burgers-list {
   margin-right: 40px;
 }
 
-/* ingredients buttons */
-.btn-outline-primary {
-  border-radius: 5px;
-  width: 140px;
-  height: 40px;
-  margin: 50px 5px;
-}
+
 
 /* Ingredient placement when being rendered to BIG DIV */
 img.ingr-placement-0 {
@@ -303,10 +337,4 @@ img.ingredient-image.ingr-placement-9 {
 .header {
   background-image: url('images/burger_nav.png');
   height: 100px;
-}
-
-.kitty-button {
-  color: #513eef;
-  font-size: 60px;
-  cursor: pointer;
 }
