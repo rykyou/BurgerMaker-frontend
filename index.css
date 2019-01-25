@@ -229,6 +229,22 @@ img.ingredient-image.ingr-placement-9 {
   margin-bottom: 87px;
 }
 
+/* resize ketchup and mayo images */
+#ingredient-image-11 {
+  width: 50%;
+  height: 20%;
+}
+
+#ingredient-image-12 {
+  width: 50%;
+  height: 20%;
+}
+
+#ingredient-image-8 {
+  height: 20%;
+}
+
+
 
 /* SIDE NAVS */
 
