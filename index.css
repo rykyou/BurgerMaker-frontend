@@ -5,20 +5,27 @@
 }
 
 .burger-display {
+  height: 475px;
   border: 2px solid grey;
 }
 
 .burger-display img {
-  height: 50%;
-  width: 50%;
-  /* max-width: 300px;
-  max-height: 300px; */
+  width: 60%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 50px;
 }
 
 .ingredient-image {
-  position: sticky;
+  position: absolute;
   width: 30%;
   height: auto;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 /* .div[.burger-image-$] {
@@ -32,7 +39,6 @@
   margin-top: 30px;
   padding-top: 0px;
   margin-bottom: 30px;
-
 }
 
 #burger-name-input {
@@ -46,3 +52,56 @@
 #submit-button {
 
 }
+
+
+/* Ingredient placement when being rendered to BIG DIV*/
+img.ingr-placement-0 {
+  margin-bottom: 0px;
+}
+
+img.ingr-placement-1 {
+  margin-bottom: 25px;
+}
+
+img.ingr-placement-2 {
+  margin-bottom: 50px;
+}
+
+img.ingr-placement-3 {
+  margin-bottom: 75px;
+}
+
+img.ingr-placement-4 {
+  margin-bottom: 100px;
+}
+
+img.ingr-placement-5 {
+  margin-bottom: 125px;
+}
+
+img.ingr-placement-6 {
+  margin-bottom: 150px;
+}
+
+img.ingr-placement-7 {
+  margin-bottom: 175px;
+}
+
+img.ingr-placement-8 {
+  margin-bottom: 200px;
+}
+
+img.ingr-placement-9 {
+  margin-bottom: 225px;
+}
+
+
+/* #position-card-image img {
+  width: 60%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 50px;
+} */

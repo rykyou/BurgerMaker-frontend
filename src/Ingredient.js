@@ -26,6 +26,7 @@ class Ingredient {
     const ingredientImage = document.createElement('img')
     ingredientImage.src = this.image_url
     ingredientImage.id = `ingredient-image-${this.id}`
+    ingredientImage.classList.add(`ingr-placement-${burgerDisplayDiv.children.length}`)
     ingredientImage.addEventListener('click', () => this.removeIngredient())
 
     burgerDisplayDiv.appendChild(ingredientImage)

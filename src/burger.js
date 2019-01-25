@@ -90,17 +90,23 @@ class Burger {
     const div = document.createElement('div')
 
     div.classList.add(`burger-image-${this.id}`)
-    
+    div.id = "position-card-image"
+
+    let counter = 0;
     this.ingredients.forEach(ingredient => {
       if (ingredient.toFixed) {
         ingredient = Ingredient.all.find(ing => ing.id === ingredient)
       }
       const image = document.createElement('img')
       image.classList.add('ingredient-image')
+      ///////
+      image.classList.add(`ingr-placement-${counter}`)
       image.dataset.id = ingredient.id
       image.src = ingredient.image_url
 
       div.appendChild(image)
+
+      ++counter
     })
     return div
   }
