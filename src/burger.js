@@ -21,13 +21,29 @@ class Burger {
     ownerTag.innerText = this.owner_name
 
     const editButton = document.createElement('button')
-    editButton.innerText = 'Edit Burger'
+    // editButton.innerText = 'Edit Burger'
+    editButton.classList.add('btn')
+
+    const editIconTag = document.createElement('i')
+    editIconTag.classList.add('fa')
+    editIconTag.classList.add('fa-pencil')
+    editIconTag.classList.add('edit-button')
+
+    editButton.appendChild(editIconTag)
+
     editButton.addEventListener('click', () => {
       this.handleEditBurgerButton()
     })
 
     const deleteButton = document.createElement('button')
-    deleteButton.innerText = 'Delete Burger'
+    deleteButton.classList.add('btn')
+
+    const trashIconTag = document.createElement('i')
+    trashIconTag.classList.add('fa')
+    trashIconTag.classList.add('fa-trash')
+    trashIconTag.classList.add('delete-button')
+
+    deleteButton.appendChild(trashIconTag)
 
     deleteButton.addEventListener('click', () => this.handleDeleteButton(this.id))
 
@@ -90,7 +106,8 @@ class Burger {
     const div = document.createElement('div')
 
     div.classList.add(`burger-image-${this.id}`)
-    
+    div.classList.add(`burger-image-container`)
+
     this.ingredients.forEach(ingredient => {
       if (ingredient.toFixed) {
         ingredient = Ingredient.all.find(ing => ing.id === ingredient)
