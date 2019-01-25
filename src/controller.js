@@ -1,6 +1,5 @@
 class Controller {
   constructor() {
-
   }
 
   getAllIngredients() {
@@ -113,6 +112,43 @@ class Controller {
     })
 
     return ingredientsArray
+  }
+
+  renderOnlyDisplay(){
+    const display = document.querySelector('.burger-display')
+
+    const welcomeMessage = document.createElement('div')
+    welcomeMessage.classList.add('welcomeMessage')
+    welcomeMessage.innerText = 'Welcome to our App! Click here to start'
+
+    const startButton = document.createElement('button')
+    const iTag = document.createElement('i')
+
+    startButton.classList.add('btn')
+
+    iTag.classList.add('fas')
+    iTag.classList.add('fa-cat')
+    iTag.classList.add('kitty-button')
+
+    startButton.appendChild(iTag)
+    
+
+    display.appendChild(welcomeMessage)
+    display.appendChild(startButton)
+
+    startButton.addEventListener('click', () => {this.removeHiddenProperties()})
+  }
+
+  removeHiddenProperties(){
+    const display = document.querySelector('.burger-display')
+
+    while (display.firstChild) {
+    	display.removeChild(display.firstChild)
+	  }
+
+    document.querySelector('.ingredients-list-container').classList.remove('hidden')
+
+    document.querySelector('.burgers-list-container').classList.remove('hidden')
   }
 
 

@@ -3,6 +3,10 @@
   height: 100%
 }
 
+ul.burgers-list {
+  padding-inline-start: 0;
+}
+
 .burger-card {
   border-radius: 5px;
   border: 2px solid grey;
@@ -26,7 +30,6 @@
 }
 
 .delete-button {
-  padding-left: 140%;
   color: #2db04f;
   font-size: 27px;
   cursor: pointer;
@@ -37,7 +40,6 @@
 }
 
 .edit-button {
-  margin-right: 0;
   color: #2db04f;
   font-size: 27px;
   cursor: pointer;
@@ -54,6 +56,7 @@
 
 .burgers-list-container {
   margin-top: 30px;
+  padding: 0 30px;
 }
 
 .burger-image-container{
@@ -265,4 +268,10 @@ img.ingredient-image.ingr-placement-9 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.kitty-button {
+  color: #513eef;
+  font-size: 60px;
+  cursor: pointer;
 }

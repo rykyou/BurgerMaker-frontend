@@ -13,24 +13,27 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <link rel="stylesheet" href='index.css'>
   </head>
   <body>
+    <nav class="navbar navbar-light justify-content-md-center">
+      <h1>MAKE YOUR OWN BURGER</h1>
+    </nav>
     <div class="sidenav-left"></div>
     <div class="sidenav-right"></div>
     <div class="container">
-      <div class='row burger-maker-container'>
+      <div class='row burger-maker-container justify-content-md-center'>
           <div class='burger-display col-6'></div>
 
-          <div class="ingredients-list-container col-6">
+          <div class="ingredients-list-container col-6 hidden">
             <ul id='ingredients-list'></ul>
           </div>
       </div>
       <div id='burger-form'> </div>
-      <div class='burgers-list-container'>
-        <ul class='burgers-list row'></ul>
+      <div class='burgers-list-container hidden'>
+        <ul class='burgers-list row justify-content-md-center'></ul>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

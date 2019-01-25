@@ -3,4 +3,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
   page.getAllIngredients()
   page.getAllBurgers()
   page.renderBurgerForm()
+  page.renderOnlyDisplay()
 })

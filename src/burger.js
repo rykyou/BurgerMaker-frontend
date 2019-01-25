@@ -23,10 +23,11 @@ class Burger {
     const editButton = document.createElement('button')
     // editButton.innerText = 'Edit Burger'
     editButton.classList.add('btn')
+    editButton.classList.add('float-left')
 
     const editIconTag = document.createElement('i')
-    editIconTag.classList.add('fa')
-    editIconTag.classList.add('fa-pencil')
+    editIconTag.classList.add('fas')
+    editIconTag.classList.add('fa-pencil-alt')
     editIconTag.classList.add('edit-button')
 
     editButton.appendChild(editIconTag)
@@ -37,6 +38,7 @@ class Burger {
 
     const deleteButton = document.createElement('button')
     deleteButton.classList.add('btn')
+    deleteButton.classList.add('float-right')
 
     const trashIconTag = document.createElement('i')
     trashIconTag.classList.add('fa')
@@ -133,7 +135,7 @@ class Burger {
 
   handleEditBurgerButton(){
     const burgerForm = document.querySelector('form')
-    
+
     burgerForm.dataset.id = this.id
 
     burgerForm.parentElement.classList.remove('hidden')
