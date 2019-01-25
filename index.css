@@ -1,7 +1,44 @@
 .burger-card {
+  border-radius: 5px;
   border: 2px solid grey;
   height: 250px;
-  padding: 15px;
+  padding: 5px;
+  margin: 10px;
+  align-items: center;
+}
+
+.burger-card:hover{
+  background-color: #cceffc;
+}
+
+.burger-card h5 {
+  text-align: center;
+}
+
+.delete-button {
+  color: #2db04f;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.edit-button {
+  margin-right: 72px;
+  color: #2db04f;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  color: red;
+}
+
+.burger-image-container{
+  border: 2px solid grey;
+  height: 130px;
 }
 
 .burger-display {
@@ -21,6 +58,7 @@
 
 .ingredient-image {
   position: absolute;
+  display: block;
   width: 30%;
   height: auto;
   left: 0;
@@ -28,29 +66,42 @@
   margin: auto;
 }
 
-/* .div[.burger-image-$] {
-  border: 2px solid grey;
-  height: 190px;
-} */
+#ingredients-list div{
+  display: inline;
+}
+
+#ingredient-1 button {
+  display: block;
+}
+
+#ingredient-9 button{
+  display: block;
+
+}
 
 #burger-form {
   width:50%;
-  margin:0 auto;
+  margin: 0 auto;
   margin-top: 30px;
   padding-top: 0px;
   margin-bottom: 30px;
 }
 
 #burger-name-input {
-
+  margin-right: 40px;
+  border-radius: 4;
 }
 
 #burger-creator-input {
-
+  margin-right: 40px;
 }
 
-#submit-button {
-
+/* ingredients buttons */
+.btn-outline-primary {
+  border-radius: 5px;
+  width: 140px;
+  height: 40px;
+  margin: 50px;
 }
 
 

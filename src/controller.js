@@ -94,6 +94,8 @@ class Controller {
     const burgerCreateButton = document.createElement('button')
     burgerCreateButton.id = 'submit-button'
     burgerCreateButton.innerText = 'Create Burger'
+    burgerCreateButton.classList.add('btn')
+    burgerCreateButton.classList.add('btn-outline-success')
 
     burgerForm.appendChild(burgerNameInput)
     burgerForm.appendChild(burgerOwnerInput)

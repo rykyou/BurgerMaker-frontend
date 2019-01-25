@@ -13,6 +13,8 @@ class Ingredient {
 
     let ingredientButton = document.createElement('button')
     ingredientButton.innerText = this.name
+    ingredientButton.classList.add('btn')
+    ingredientButton.classList.add('btn-outline-primary')
 
     ingredientButton.addEventListener('click', () => this.renderIngredientToDisplay())
 
