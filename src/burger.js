@@ -79,13 +79,6 @@ class Burger {
     burgerDiv.children[0].innerText = this.name
     burgerDiv.children[1].innerText = this.owner_name
 
-    // const burgerImgDiv = document.querySelector(`.burger-image-${this.id}`)
-
-    // while (burgerImgDiv.firstChild) {
-    // 	burgerImgDiv.removeChild(burgerImgDiv.firstChild);
-	  // }
-    //
-    // burgerImgDiv.appendChild(this.renderBurgerImage())
 
     document.querySelector(`.burger-image-${this.id}`).remove()
     burgerDiv.insertBefore(this.renderBurgerImage(), burgerDiv.children[2])

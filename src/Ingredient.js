@@ -35,7 +35,11 @@ class Ingredient {
   }
 
   removeIngredient() {
-    document.querySelector(`#ingredient-image-${this.id}`).remove()
+    const burgerDisplayDiv = document.querySelector(`.burger-display`)
+
+    if (burgerDisplayDiv.lastChild) {
+      burgerDisplayDiv.lastChild.remove()
+	  }
   }
 }
 
