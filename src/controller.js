@@ -23,7 +23,7 @@ class Controller {
     .then(res => res.json())
     .then(json => {
       const h2 = document.createElement('h2')
-      h2.innerText = 'Burger Creations'
+      h2.innerText = 'Burger Creations:'
 
       document.querySelector('.burgers-list-container ').insertBefore(h2, document.querySelector('.burgers-list-container ').children[0])
 

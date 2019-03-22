@@ -140,10 +140,6 @@ ul.burgers-list {
   border-color: #ff0000;
 }
 
-#ingredients-list {
-
-}
-
 .ingredients-list-container h2 {
   font-family: Balonku;
   color: grey;
@@ -281,7 +277,6 @@ img.ingredient-image.ingr-placement-9 {
 
 
 /* SIDE NAVS */
-
 .sidenav-left {
   height: 100%;
   width: 12%;
