@@ -15,6 +15,17 @@ class Controller {
         let ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
         ingredientInstance.render()
       })
+
+      //// CLEAR BUTTON ////
+      const ingredientsList = document.querySelector('#ingredients-list')
+      let clearButton = document.createElement('button')
+      clearButton.innerText = "Clear"
+      clearButton.classList.add('btn')
+      clearButton.classList.add('btn-outline-primary')
+
+      const burgerDisplayDiv = document.querySelector(`.burger-display`)
+      clearButton.addEventListener('click', () => this.clearAllIngredients())
+      ingredientsList.appendChild(clearButton)
     })
   }
 
@@ -163,6 +174,13 @@ class Controller {
     document.querySelector('.ingredients-list-container').classList.remove('hidden')
 
     document.querySelector('.burgers-list-container').classList.remove('hidden')
+  }
+
+  clearAllIngredients() {
+    const burgerDisplayDiv = document.querySelector(`.burger-display`)
+    while (burgerDisplayDiv.firstChild) {
+      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild);
+    }
   }
 
 
