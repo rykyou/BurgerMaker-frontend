@@ -48,12 +48,28 @@
     </div>
     <!-- Model END -->
 
-    <!-- Modal for when number of ingredients exceed MAX -->
-    <div class="modal fade" id="max-ingredients-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal for when no ingredients are chosen/burger display is empty -->
+    <div class="modal fade" id="no-ingredients-error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Don't be greedy!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span id="exit-no-ingr-modal" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Need to choose at least one ingredient to call it a burger!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Model END -->
+
+    <!-- Modal for when number of ingredients exceed MAX -->
+    <div class="modal fade" id="max-ingredients-error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span id="exit-max-ingr-modal" aria-hidden="true">&times;</span>
             </button>
@@ -65,7 +81,6 @@
       </div>
     </div>
     <!-- Model END -->
-
 
     <div class='whole-page'>
       <div class="sidenav-left"></div>

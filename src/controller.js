@@ -108,35 +108,6 @@ class Controller {
     modal.classList.remove("block")
   }
 
-  // renderBurgerForm(){
-  //   const burgerFormContainer = document.getElementById('burger-form')
-  //   burgerFormContainer.classList.add('hidden')
-  //
-  //   const burgerForm = document.createElement('form')
-  //   burgerForm.dataset.id = ''
-  //
-  //   const burgerNameInput = document.createElement('input')
-  //   burgerNameInput.id = `burger-name-input`
-  //   burgerNameInput.placeholder = 'Burger Name...'
-  //
-  //   const burgerOwnerInput = document.createElement('input')
-  //   burgerOwnerInput.id = `burger-creator-input`
-  //   burgerOwnerInput.placeholder = 'Creator Name...'
-  //
-  //   const burgerCreateButton = document.createElement('button')
-  //   burgerCreateButton.id = 'submit-button'
-  //   burgerCreateButton.innerText = 'Create Burger'
-  //   burgerCreateButton.classList.add('btn')
-  //   burgerCreateButton.classList.add('btn-outline-success')
-  //
-  //   burgerForm.appendChild(burgerNameInput)
-  //   burgerForm.appendChild(burgerOwnerInput)
-  //   burgerForm.appendChild(burgerCreateButton)
-  //   burgerFormContainer.appendChild(burgerForm)
-  //
-  //   burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
-  // }
-
   collectIngredientsIdIntoArray() {
     const burgerDisplayDiv = document.querySelector('.burger-display');
     let ingredientsArray = [];
@@ -186,48 +157,33 @@ class Controller {
   }
 
   renderBurgerFormModal() {
-    const modal = document.getElementById('burger-form-modal')
-    modal.classList.add("show")
-    modal.classList.add("block")
+    const burgerDisplayDiv = document.querySelector(`.burger-display`)
 
-    const burgerForm = document.getElementById('burger-form')
-    // burgerForm.dataset.id = ''
-    // const formGroupDiv1 = document.createElement('div')
-    // formGroupDiv1.classList.add('form-group')
-    // const formGroupDiv2 = document.createElement('div')
-    // formGroupDiv2.classList.add('form-group')
-    //
-    // const burgerNameInput = document.createElement('input')
-    // burgerNameInput.id = `burger-name-input`
-    // burgerNameInput.placeholder = 'Burger Name...'
-    // burgerNameInput.classList.add('form-control')
-    //
-    // const burgerOwnerInput = document.createElement('input')
-    // burgerOwnerInput.id = `burger-creator-input`
-    // burgerOwnerInput.placeholder = 'Creator Name...'
-    // burgerOwnerInput.classList.add('form-control')
-    //
-    // const burgerCreateButton = document.createElement('button')
-    // burgerCreateButton.id = 'submit-button'
-    // burgerCreateButton.innerText = 'Create Burger'
-    // burgerCreateButton.classList.add('btn')
-    // burgerCreateButton.classList.add('btn-outline-success')
-    //
-    // burgerForm.appendChild(formGroupDiv1)
-    // formGroupDiv1.appendChild(burgerNameInput)
-    // burgerForm.appendChild(formGroupDiv2)
-    // formGroupDiv2.appendChild(burgerOwnerInput)
-    // burgerForm.appendChild(burgerCreateButton)
-    // burgerFormContainer.appendChild(burgerForm)
+    if (burgerDisplayDiv.childElementCount === 0) {
+      const modal = document.getElementById('no-ingredients-error-modal')
+      modal.classList.add("show")
+      modal.classList.add("block")
 
-    burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+      const xBtn = document.getElementById('exit-no-ingr-modal')
+      xBtn.addEventListener('click', () => {
+        modal.classList.remove("show")
+        modal.classList.remove("block")
+      })
+    } else {
+      const modal = document.getElementById('burger-form-modal')
+      modal.classList.add("show")
+      modal.classList.add("block")
 
-    const xBtn = document.getElementById('exit-burger-form-modal')
-    xBtn.addEventListener('click', () => {
-      modal.classList.remove("show")
-      modal.classList.remove("block")
-    })
+      const burgerForm = document.getElementById('burger-form')
+
+      burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+
+      const xBtn = document.getElementById('exit-burger-form-modal')
+      xBtn.addEventListener('click', () => {
+        modal.classList.remove("show")
+        modal.classList.remove("block")
+      })
+    }
   }
-
 
 }

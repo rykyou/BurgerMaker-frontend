@@ -39,7 +39,7 @@ class Ingredient {
 
       burgerDisplayDiv.appendChild(ingredientImage)
     } else {
-      const modal = document.getElementById('max-ingredients-modal')
+      const modal = document.getElementById('max-ingredients-error-modal')
       modal.classList.add("show")
       modal.classList.add("block")
 

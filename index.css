@@ -159,17 +159,12 @@ ul.burgers-list {
 }
 
 #burger-form {
-  width:50%;
+  width: 90%;
   margin: 0 auto;
 }
 
-#burger-name-input {
-  margin-right: 40px;
-  border-radius: 4;
-}
-
-#burger-creator-input {
-  margin-right: 40px;
+#submit-button {
+  float: right;
 }
 
 
