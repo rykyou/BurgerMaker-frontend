@@ -9,34 +9,29 @@ class Controller {
 
       const h2 = document.createElement('h2')
       h2.innerText = 'Choose your ingredients:'
-      document.querySelector('.ingredients-list-container ').insertBefore(h2, document.querySelector('.ingredients-list-container ').children[0])
+      document.querySelector('.ingredients-list-container').insertBefore(h2, document.querySelector('.ingredients-list-container').children[0])
 
       json.forEach((ingredient) => {
         let ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
         ingredientInstance.render()
       })
 
-      //// CLEAR BUTTON ////
-      const ingredientsList = document.querySelector('#ingredients-list')
+      //// CLEAR & DONE BUTTONS ////
       let clearButton = document.createElement('button')
       clearButton.innerText = "Clear"
       clearButton.classList.add('btn')
-      clearButton.classList.add('btn-outline-primary')
-
-      const burgerDisplayDiv = document.querySelector(`.burger-display`)
       clearButton.addEventListener('click', () => this.clearAllIngredients())
-      ingredientsList.appendChild(clearButton)
-      //////////////////////
 
-      //// CREATE BURGER BUTTON ////
-      let createButton = document.createElement('button')
-      createButton.innerText = "Done"
-      createButton.classList.add('btn')
-      createButton.classList.add('btn-outline-primary')
+      let doneButton = document.createElement('button')
+      doneButton.innerText = "Done"
+      doneButton.classList.add('btn')
+      doneButton.addEventListener('click', () => this.renderBurgerFormModal())
 
-      createButton.addEventListener('click', () => this.renderBurgerFormModal())
-      ingredientsList.appendChild(createButton)
-      //////////////////////
+      let divTwoButtonsContainer = document.createElement('div')
+      divTwoButtonsContainer.classList.add('two-buttons-container')
+      divTwoButtonsContainer.appendChild(clearButton)
+      divTwoButtonsContainer.appendChild(doneButton)
+      document.querySelector('.ingredients-list-container').appendChild(divTwoButtonsContainer)
     })
   }
 

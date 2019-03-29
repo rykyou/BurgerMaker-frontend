@@ -101,7 +101,6 @@ ul.burgers-list {
   right: 0;
   margin: auto;
   bottom: 50px;
-  /* background-color:   */
 }
 
 #welcome-display img {
@@ -136,8 +135,8 @@ ul.burgers-list {
 }
 
 .btn-outline-primary:hover {
-  background-color: #5a0505;
-  border-color: #ff0000;
+  background-color: #9d2437;
+  border-color: #9d2437;
 }
 
 .ingredients-list-container h2 {
@@ -150,8 +149,27 @@ ul.burgers-list {
 }
 
 #ingredients-list div{
-  /* margin: 30px; */
   display: inline;
+}
+
+.two-buttons-container{
+  text-align: center;
+  margin-left: 2vh;
+}
+
+.two-buttons-container .btn{
+  border-radius: 5px;
+  width: 140px;
+  height: 40px;
+  margin: 30px 5px;
+  border-color: #2E8B57;
+  color: #2E8B57;
+}
+
+.two-buttons-container .btn:hover {
+  background-color: #2E8B57;
+  border-color: #2E8B57;
+  color: #fff;
 }
 
 .hidden {
