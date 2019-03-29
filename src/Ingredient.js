@@ -39,11 +39,11 @@ class Ingredient {
 
       burgerDisplayDiv.appendChild(ingredientImage)
     } else {
-      const modal = document.getElementById('exampleModalCenter')
+      const modal = document.getElementById('max-ingredients-modal')
       modal.classList.add("show")
       modal.classList.add("block")
 
-      const xBtn = document.getElementById('exit-modal')
+      const xBtn = document.getElementById('exit-max-ingr-modal')
       xBtn.addEventListener('click', () => {
         modal.classList.remove("show")
         modal.classList.remove("block")

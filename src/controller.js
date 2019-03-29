@@ -26,6 +26,17 @@ class Controller {
       const burgerDisplayDiv = document.querySelector(`.burger-display`)
       clearButton.addEventListener('click', () => this.clearAllIngredients())
       ingredientsList.appendChild(clearButton)
+      //////////////////////
+
+      //// CREATE BURGER BUTTON ////
+      let createButton = document.createElement('button')
+      createButton.innerText = "Done"
+      createButton.classList.add('btn')
+      createButton.classList.add('btn-outline-primary')
+
+      createButton.addEventListener('click', () => this.renderBurgerFormModal())
+      ingredientsList.appendChild(createButton)
+      //////////////////////
     })
   }
 
@@ -91,37 +102,40 @@ class Controller {
       }
     }
     burgerForm.reset();
-    burgerForm.parentElement.classList.add('hidden')
+    // burgerForm.parentElement.classList.add('hidden')
+    const modal = document.getElementById('burger-form-modal')
+    modal.classList.remove("show")
+    modal.classList.remove("block")
   }
 
-  renderBurgerForm(){
-    const burgerFormContainer = document.getElementById('burger-form')
-    burgerFormContainer.classList.add('hidden')
-
-    const burgerForm = document.createElement('form')
-    burgerForm.dataset.id = ''
-
-    const burgerNameInput = document.createElement('input')
-    burgerNameInput.id = `burger-name-input`
-    burgerNameInput.placeholder = 'Burger Name...'
-
-    const burgerOwnerInput = document.createElement('input')
-    burgerOwnerInput.id = `burger-creator-input`
-    burgerOwnerInput.placeholder = 'Creator Name...'
-
-    const burgerCreateButton = document.createElement('button')
-    burgerCreateButton.id = 'submit-button'
-    burgerCreateButton.innerText = 'Create Burger'
-    burgerCreateButton.classList.add('btn')
-    burgerCreateButton.classList.add('btn-outline-success')
-
-    burgerForm.appendChild(burgerNameInput)
-    burgerForm.appendChild(burgerOwnerInput)
-    burgerForm.appendChild(burgerCreateButton)
-    burgerFormContainer.appendChild(burgerForm)
-
-    burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
-  }
+  // renderBurgerForm(){
+  //   const burgerFormContainer = document.getElementById('burger-form')
+  //   burgerFormContainer.classList.add('hidden')
+  //
+  //   const burgerForm = document.createElement('form')
+  //   burgerForm.dataset.id = ''
+  //
+  //   const burgerNameInput = document.createElement('input')
+  //   burgerNameInput.id = `burger-name-input`
+  //   burgerNameInput.placeholder = 'Burger Name...'
+  //
+  //   const burgerOwnerInput = document.createElement('input')
+  //   burgerOwnerInput.id = `burger-creator-input`
+  //   burgerOwnerInput.placeholder = 'Creator Name...'
+  //
+  //   const burgerCreateButton = document.createElement('button')
+  //   burgerCreateButton.id = 'submit-button'
+  //   burgerCreateButton.innerText = 'Create Burger'
+  //   burgerCreateButton.classList.add('btn')
+  //   burgerCreateButton.classList.add('btn-outline-success')
+  //
+  //   burgerForm.appendChild(burgerNameInput)
+  //   burgerForm.appendChild(burgerOwnerInput)
+  //   burgerForm.appendChild(burgerCreateButton)
+  //   burgerFormContainer.appendChild(burgerForm)
+  //
+  //   burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+  // }
 
   collectIngredientsIdIntoArray() {
     const burgerDisplayDiv = document.querySelector('.burger-display');
@@ -144,26 +158,14 @@ class Controller {
 
     const burgerGif = document.createElement('img')
     burgerGif.src = 'images/burger-logo.gif'
-    // const startButton = document.createElement('button')
-    // const iTag = document.createElement('i')
-    // startButton.classList.add('btn')
-
-    // iTag.classList.add('fas')
-    // iTag.classList.add('fa-cat')
-    // iTag.classList.add('kitty-button')
-
-    // startButton.appendChild(iTag)
-
 
     div.appendChild(burgerGif)
     display.appendChild(div)
-    // display.appendChild(startButton)
 
     div.addEventListener('click', () => {this.removeHiddenProperties()})
   }
 
   removeHiddenProperties(){
-
     const display = document.querySelector('.burger-display')
     display.removeAttribute('id')
 
@@ -181,6 +183,50 @@ class Controller {
     while (burgerDisplayDiv.firstChild) {
       burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild);
     }
+  }
+
+  renderBurgerFormModal() {
+    const modal = document.getElementById('burger-form-modal')
+    modal.classList.add("show")
+    modal.classList.add("block")
+
+    const burgerForm = document.getElementById('burger-form')
+    // burgerForm.dataset.id = ''
+    // const formGroupDiv1 = document.createElement('div')
+    // formGroupDiv1.classList.add('form-group')
+    // const formGroupDiv2 = document.createElement('div')
+    // formGroupDiv2.classList.add('form-group')
+    //
+    // const burgerNameInput = document.createElement('input')
+    // burgerNameInput.id = `burger-name-input`
+    // burgerNameInput.placeholder = 'Burger Name...'
+    // burgerNameInput.classList.add('form-control')
+    //
+    // const burgerOwnerInput = document.createElement('input')
+    // burgerOwnerInput.id = `burger-creator-input`
+    // burgerOwnerInput.placeholder = 'Creator Name...'
+    // burgerOwnerInput.classList.add('form-control')
+    //
+    // const burgerCreateButton = document.createElement('button')
+    // burgerCreateButton.id = 'submit-button'
+    // burgerCreateButton.innerText = 'Create Burger'
+    // burgerCreateButton.classList.add('btn')
+    // burgerCreateButton.classList.add('btn-outline-success')
+    //
+    // burgerForm.appendChild(formGroupDiv1)
+    // formGroupDiv1.appendChild(burgerNameInput)
+    // burgerForm.appendChild(formGroupDiv2)
+    // formGroupDiv2.appendChild(burgerOwnerInput)
+    // burgerForm.appendChild(burgerCreateButton)
+    // burgerFormContainer.appendChild(burgerForm)
+
+    burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+
+    const xBtn = document.getElementById('exit-burger-form-modal')
+    xBtn.addEventListener('click', () => {
+      modal.classList.remove("show")
+      modal.classList.remove("block")
+    })
   }
 
 
