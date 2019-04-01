@@ -131,31 +131,39 @@ class Burger {
 
     burgerForm.dataset.id = this.id
 
-    burgerForm.parentElement.classList.remove('hidden')
-
-    const burgerDiv = document.querySelector(`#burger-${this.id}`)
-
-    const burgerNameInput = document.querySelector('#burger-name-input')
-    burgerNameInput.value = burgerDiv.children[0].innerText
-
-    const burgerOwnerInput = document.querySelector('#burger-creator-input')
-    burgerOwnerInput.value = burgerDiv.children[1].innerText
-
+    // burgerForm.parentElement.classList.remove('hidden')
     const burgerDisplayDiv = document.querySelector('.burger-display')
 
     while (burgerDisplayDiv.firstChild) {
-      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)}
+      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)
+    }
 
     const ingredientImgNodes = document.querySelector(`.burger-image-${this.id}`).childNodes
     let imageIds = []
     ingredientImgNodes.forEach(imgNode => {
       imageIds.push(parseInt(imgNode.dataset.id))
     })
-
     imageIds.forEach((imgId) => {
       const ingredientInstance = Ingredient.all.find(x => x.id === imgId)
       ingredientInstance.renderIngredientToDisplay()
     })
+
+    const burgerDiv = document.querySelector(`#burger-${this.id}`)
+
+    ////// burger-info div ///////
+    const burgerInfoDiv = document.querySelector('.burger-info')
+    if (burgerInfoDiv.firstElementChild) {
+      burgerInfoDiv.removeChild(burgerInfoDiv.firstElementChild)
+    }
+    const burgerInfoH2 = document.createElement('h2')
+    burgerInfoH2.innerText = `${burgerDiv.children[0].innerText} by ${burgerDiv.children[1].innerText}`
+    burgerInfoDiv.append(burgerInfoH2)
+    //////////////////////////////
+
+    const burgerNameInput = document.querySelector('#burger-name-input')
+    burgerNameInput.value = burgerDiv.children[0].innerText
+    const burgerOwnerInput = document.querySelector('#burger-creator-input')
+    burgerOwnerInput.value = burgerDiv.children[1].innerText
 
     const submitButton = document.querySelector('#submit-button')
     submitButton.innerText = 'Save Burger'
