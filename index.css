@@ -37,11 +37,11 @@ ul .burgers-list {
   margin-right: 20px;
   float: left;
   width: 40%;
-  background-color: #f6b729;
+  background-color: #ffce64;
 }
 
 .burger-card:hover{
-  background-color: #e87c2f;
+  background-color: #e8a533;
 }
 
 .burger-card h5 {
@@ -201,7 +201,7 @@ ul .burgers-list {
 
 .burger-info {
   /* position: fixed; */
-  background-color: #eaba60;
+  background-color: #e5bc7b;
   width: 100%;
   height: 55px;
   margin-top: 5px;
