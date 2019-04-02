@@ -27,10 +27,6 @@ class Ingredient {
   renderIngredientToDisplay() {
     const burgerDisplayDiv = document.querySelector('.burger-display')
 
-    // if (burgerDisplayDiv.children.length === 0) {
-    //   document.querySelector('#burger-form').classList.remove('hidden')
-    // }
-
     if (burgerDisplayDiv.children.length < 10) {
       const ingredientImage = document.createElement('img')
       ingredientImage.src = this.image_url
@@ -58,10 +54,6 @@ class Ingredient {
     if (burgerDisplayDiv.lastChild) {
       burgerDisplayDiv.lastChild.remove()
 	  }
-
-    // if (document.querySelector('.burger-display').children.length === 0) {
-    //   document.querySelector('#burger-form').classList.add('hidden')
-    // }
   }
 }
 

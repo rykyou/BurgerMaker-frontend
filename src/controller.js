@@ -6,7 +6,6 @@ class Controller {
     fetch(`http://localhost:3000/ingredients`)
     .then(res => res.json())
     .then(json => {
-
       const h2 = document.createElement('h2')
       h2.innerText = 'Choose your ingredients:'
       document.querySelector('.ingredients-list-container').insertBefore(h2, document.querySelector('.ingredients-list-container').children[0])
@@ -22,7 +21,7 @@ class Controller {
       clearButton.classList.add('btn')
       clearButton.classList.add('btn-primary')
       clearButton.classList.add('two-buttons')
-      clearButton.addEventListener('click', () => this.clearAllIngredients())
+      clearButton.addEventListener('click', () => this.clearBurgerDisplay())
 
       let doneButton = document.createElement('button')
       doneButton.innerText = "Done"
@@ -49,7 +48,6 @@ class Controller {
       document.querySelector('.burgers-list-container ').insertBefore(h2, document.querySelector('.burgers-list-container ').children[0])
 
       json.forEach((burger) => {
-
         let burgerInstance = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
         burgerInstance.render()
       })
@@ -76,19 +74,16 @@ class Controller {
 
     const burgerForm = e.target
     if (burgerForm.dataset.id != '') {
-
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
       const updatedBurger = new Burger(parseInt(burgerForm.dataset.id), burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()
       burgerForm.dataset.id = '';
-
     } else {
       const burgerName = burgerForm[0].value
       const burgerCreatorName = burgerForm[1].value
       const burgerIngredientsIds = this.collectIngredientsIdIntoArray()
 
       if (burgerName != '' && burgerCreatorName != '' && burgerIngredientsIds.length > 0) {
-
         const newBurgerData = {
           burger: {
             name: burgerName,
@@ -97,14 +92,13 @@ class Controller {
           }
         }
         this.createBurger(newBurgerData)
-        document.querySelector('.burger-display').innerHTML = ''
+        this.clearBurgerDisplay()
       }
     }
     burgerForm.reset();
-    // burgerForm.parentElement.classList.add('hidden')
-    const modal = document.getElementById('burger-form-modal')
-    modal.classList.remove("show")
-    modal.classList.remove("block")
+
+    const formModal = document.getElementById('burger-form-modal')
+    this.closeModal(formModal)
   }
 
   collectIngredientsIdIntoArray() {
@@ -118,7 +112,7 @@ class Controller {
     return ingredientsArray
   }
 
-  renderOnlyDisplay(){
+  renderHomeDisplay(){
     const display = document.querySelector('.burger-display')
     display.classList.add('d-flex')
     display.classList.add('justify-content-center')
@@ -147,30 +141,20 @@ class Controller {
     document.querySelector('.burgers-list-container').classList.remove('hidden')
   }
 
-  clearAllIngredients() {
-    const burgerDisplayDiv = document.querySelector(`.burger-display`)
-    while (burgerDisplayDiv.firstChild) {
-      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild);
-    }
-  }
-
   renderBurgerFormModal() {
     const burgerDisplayDiv = document.querySelector(`.burger-display`)
 
     if (burgerDisplayDiv.childElementCount === 0) {
-      const modal = document.getElementById('no-ingredients-error-modal')
-      modal.classList.add("show")
-      modal.classList.add("block")
+      const noIngredientsModal = document.getElementById('no-ingredients-error-modal')
+      this.showModal(noIngredientsModal)
 
       const xBtn = document.getElementById('exit-no-ingr-modal')
       xBtn.addEventListener('click', () => {
-        modal.classList.remove("show")
-        modal.classList.remove("block")
+        this.closeModal(noIngredientsModal)
       })
     } else {
-      const modal = document.getElementById('burger-form-modal')
-      modal.classList.add("show")
-      modal.classList.add("block")
+      const formModal = document.getElementById('burger-form-modal')
+      this.showModal(formModal)
 
       const burgerForm = document.getElementById('burger-form')
 
@@ -178,10 +162,23 @@ class Controller {
 
       const xBtn = document.getElementById('exit-burger-form-modal')
       xBtn.addEventListener('click', () => {
-        modal.classList.remove("show")
-        modal.classList.remove("block")
+        this.closeModal(formModal)
       })
     }
+  }
+
+  showModal(modalElement) {
+    modalElement.classList.add("show")
+    modalElement.classList.add("block")
+  }
+
+  closeModal(modalElement) {
+    modalElement.classList.remove("show")
+    modalElement.classList.remove("block")
+  }
+
+  clearBurgerDisplay() {
+    document.querySelector('.burger-display').innerHTML = ''
   }
 
 }
