@@ -180,10 +180,6 @@ class Burger {
   }
 
   clearBurgerDisplayDiv() {
-    // const burgerDisplayDiv = document.querySelector('.burger-display')
-    // while (burgerDisplayDiv.firstChild) {
-    //   burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild);
-    // }
     document.querySelector('.burger-display').innerHTML = ''
   }
 
