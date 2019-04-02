@@ -95,6 +95,10 @@ class Burger {
     while (burgerDisplayDiv.firstChild) {
     	burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild);
 	  }
+
+    const burgerInfoDiv = document.querySelector('.burger-info')
+    burgerInfoDiv.removeChild(burgerInfoDiv.firstElementChild)
+    
   }
 
   renderBurgerImage() {

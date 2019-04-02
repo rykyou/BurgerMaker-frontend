@@ -20,11 +20,15 @@ class Controller {
       let clearButton = document.createElement('button')
       clearButton.innerText = "Clear"
       clearButton.classList.add('btn')
+      clearButton.classList.add('btn-primary')
+      clearButton.classList.add('two-buttons')
       clearButton.addEventListener('click', () => this.clearAllIngredients())
 
       let doneButton = document.createElement('button')
       doneButton.innerText = "Done"
       doneButton.classList.add('btn')
+      doneButton.classList.add('btn-primary')
+      doneButton.classList.add('two-buttons')
       doneButton.addEventListener('click', () => this.renderBurgerFormModal())
 
       let divTwoButtonsContainer = document.createElement('div')

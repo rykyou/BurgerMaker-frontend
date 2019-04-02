@@ -127,18 +127,19 @@ ul.burgers-list {
 }
 
 /* ingredients buttons */
-.btn-outline-primary {
+.ingr-buttons {
   border-radius: 5px;
   width: 140px;
   height: 40px;
   margin: 30px 5px;
-  border-color: #9d2437;
-  color: #9d2437;
+  background-color: #CD5C5C;
+  border-color: #CD5C5C;
+  color: #fff;
 }
 
-.btn-outline-primary:hover {
-  background-color: #9d2437;
-  border-color: #9d2437;
+.ingr-buttons:hover {
+  background-color: #B22222;
+  border-color: #B22222;
 }
 
 .ingredients-list-container h2 {
@@ -159,16 +160,17 @@ ul.burgers-list {
   margin-left: 2vh;
 }
 
-.two-buttons-container .btn{
+.two-buttons{
   border-radius: 5px;
   width: 140px;
   height: 40px;
   margin: 30px 5px;
-  border-color: #2E8B57;
-  color: #2E8B57;
+  border-color: #3CB371;
+  background-color: #3CB371;
+  color: #fff;
 }
 
-.two-buttons-container .btn:hover {
+.two-buttons:hover {
   background-color: #2E8B57;
   border-color: #2E8B57;
   color: #fff;
@@ -187,8 +189,13 @@ ul.burgers-list {
   float: right;
 }
 
-.burger-info {
-
+.burger-info h2 {
+  font-family: Balonku;
+  color: grey;
+  text-shadow: 3px grey;
+  font-size: 25px;
+  margin-top: 15px;
+  text-align: center;
 }
 
 

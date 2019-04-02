@@ -15,7 +15,8 @@ class Ingredient {
     let ingredientButton = document.createElement('button')
     ingredientButton.innerText = this.name
     ingredientButton.classList.add('btn')
-    ingredientButton.classList.add('btn-outline-primary')
+    ingredientButton.classList.add('btn-primary')
+    ingredientButton.classList.add('ingr-buttons')
 
     ingredientButton.addEventListener('click', () => this.renderIngredientToDisplay())
 
@@ -58,9 +59,9 @@ class Ingredient {
       burgerDisplayDiv.lastChild.remove()
 	  }
 
-    if (document.querySelector('.burger-display').children.length === 0) {
-      document.querySelector('#burger-form').classList.add('hidden')
-    }
+    // if (document.querySelector('.burger-display').children.length === 0) {
+    //   document.querySelector('#burger-form').classList.add('hidden')
+    // }
   }
 }
 
