@@ -1,4 +1,4 @@
-BASE_URL = 'https://fun-burger-maker.herokuapp.com/'
+BASE_URL = 'https://fun-burger-maker.herokuapp.com'
 
 
 class Burger {
