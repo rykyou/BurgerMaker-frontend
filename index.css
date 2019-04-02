@@ -115,9 +115,6 @@ ul .burgers-list {
 }
 
 #welcome-display img {
-  position: static;
-  margin-left: 20%;
-  margin-top: 20%;
   cursor: pointer;
 }
 

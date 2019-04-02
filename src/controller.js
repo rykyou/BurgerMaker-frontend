@@ -120,15 +120,12 @@ class Controller {
     display.classList.add('justify-content-center')
     display.id = 'welcome-display'
 
-    const div = document.createElement('div')
-
     const burgerGif = document.createElement('img')
     burgerGif.src = 'images/burger-logo.gif'
 
-    div.appendChild(burgerGif)
-    display.appendChild(div)
+    display.appendChild(burgerGif)
 
-    div.addEventListener('click', () => {this.removeHiddenProperties()})
+    burgerGif.addEventListener('click', () => {this.removeHiddenProperties()})
   }
 
   removeHiddenProperties(){
