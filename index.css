@@ -98,6 +98,7 @@ ul .burgers-list {
   height: 55vh;
   width: 100%;
   overflow: auto;
+  position: relative;
   border: 2px solid grey;
   background-color: white;
 }
