@@ -6,15 +6,35 @@ class Controller {
     fetch(`http://localhost:3000/ingredients`)
     .then(res => res.json())
     .then(json => {
-
       const h2 = document.createElement('h2')
       h2.innerText = 'Choose your ingredients:'
-      document.querySelector('.ingredients-list-container ').insertBefore(h2, document.querySelector('.ingredients-list-container ').children[0])
+      document.querySelector('.ingredients-list-container').insertBefore(h2, document.querySelector('.ingredients-list-container').children[0])
 
       json.forEach((ingredient) => {
         let ingredientInstance = new Ingredient(ingredient.id, ingredient.name, ingredient.image_url)
         ingredientInstance.render()
       })
+
+      //// CLEAR & DONE BUTTONS ////
+      let clearButton = document.createElement('button')
+      clearButton.innerText = "Clear"
+      clearButton.classList.add('btn')
+      clearButton.classList.add('btn-primary')
+      clearButton.classList.add('two-buttons')
+      clearButton.addEventListener('click', () => this.clearBurgerDisplay())
+
+      let doneButton = document.createElement('button')
+      doneButton.innerText = "Done"
+      doneButton.classList.add('btn')
+      doneButton.classList.add('btn-primary')
+      doneButton.classList.add('two-buttons')
+      doneButton.addEventListener('click', () => this.renderBurgerFormModal())
+
+      let divTwoButtonsContainer = document.createElement('div')
+      divTwoButtonsContainer.classList.add('two-buttons-container')
+      divTwoButtonsContainer.appendChild(clearButton)
+      divTwoButtonsContainer.appendChild(doneButton)
+      document.querySelector('.ingredients-list-container').appendChild(divTwoButtonsContainer)
     })
   }
 
@@ -23,12 +43,11 @@ class Controller {
     .then(res => res.json())
     .then(json => {
       const h2 = document.createElement('h2')
-      h2.innerText = 'Burger Creations'
+      h2.innerText = 'Burger Creations:'
 
       document.querySelector('.burgers-list-container ').insertBefore(h2, document.querySelector('.burgers-list-container ').children[0])
 
       json.forEach((burger) => {
-
         let burgerInstance = new Burger(burger.id, burger.name, burger.owner_name, burger.ingredients)
         burgerInstance.render()
       })
@@ -55,19 +74,16 @@ class Controller {
 
     const burgerForm = e.target
     if (burgerForm.dataset.id != '') {
-
       const arrayOfIngredientIds = this.collectIngredientsIdIntoArray()
       const updatedBurger = new Burger(parseInt(burgerForm.dataset.id), burgerForm[0].value, burgerForm[1].value, arrayOfIngredientIds);
       updatedBurger.update()
       burgerForm.dataset.id = '';
-
     } else {
       const burgerName = burgerForm[0].value
       const burgerCreatorName = burgerForm[1].value
       const burgerIngredientsIds = this.collectIngredientsIdIntoArray()
 
       if (burgerName != '' && burgerCreatorName != '' && burgerIngredientsIds.length > 0) {
-
         const newBurgerData = {
           burger: {
             name: burgerName,
@@ -76,40 +92,13 @@ class Controller {
           }
         }
         this.createBurger(newBurgerData)
-        document.querySelector('.burger-display').innerHTML = ''
+        this.clearBurgerDisplay()
       }
     }
     burgerForm.reset();
-    burgerForm.parentElement.classList.add('hidden')
-  }
 
-  renderBurgerForm(){
-    const burgerFormContainer = document.getElementById('burger-form')
-    burgerFormContainer.classList.add('hidden')
-
-    const burgerForm = document.createElement('form')
-    burgerForm.dataset.id = ''
-
-    const burgerNameInput = document.createElement('input')
-    burgerNameInput.id = `burger-name-input`
-    burgerNameInput.placeholder = 'Burger Name...'
-
-    const burgerOwnerInput = document.createElement('input')
-    burgerOwnerInput.id = `burger-creator-input`
-    burgerOwnerInput.placeholder = 'Creator Name...'
-
-    const burgerCreateButton = document.createElement('button')
-    burgerCreateButton.id = 'submit-button'
-    burgerCreateButton.innerText = 'Create Burger'
-    burgerCreateButton.classList.add('btn')
-    burgerCreateButton.classList.add('btn-outline-success')
-
-    burgerForm.appendChild(burgerNameInput)
-    burgerForm.appendChild(burgerOwnerInput)
-    burgerForm.appendChild(burgerCreateButton)
-    burgerFormContainer.appendChild(burgerForm)
-
-    burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+    const formModal = document.getElementById('burger-form-modal')
+    this.closeModal(formModal)
   }
 
   collectIngredientsIdIntoArray() {
@@ -123,7 +112,7 @@ class Controller {
     return ingredientsArray
   }
 
-  renderOnlyDisplay(){
+  renderHomeDisplay(){
     const display = document.querySelector('.burger-display')
     display.classList.add('d-flex')
     display.classList.add('justify-content-center')
@@ -133,26 +122,14 @@ class Controller {
 
     const burgerGif = document.createElement('img')
     burgerGif.src = 'images/burger-logo.gif'
-    // const startButton = document.createElement('button')
-    // const iTag = document.createElement('i')
-    // startButton.classList.add('btn')
-
-    // iTag.classList.add('fas')
-    // iTag.classList.add('fa-cat')
-    // iTag.classList.add('kitty-button')
-
-    // startButton.appendChild(iTag)
-
 
     div.appendChild(burgerGif)
     display.appendChild(div)
-    // display.appendChild(startButton)
 
     div.addEventListener('click', () => {this.removeHiddenProperties()})
   }
 
   removeHiddenProperties(){
-
     const display = document.querySelector('.burger-display')
     display.removeAttribute('id')
 
@@ -161,9 +138,48 @@ class Controller {
 	  }
 
     document.querySelector('.ingredients-list-container').classList.remove('hidden')
-
     document.querySelector('.burgers-list-container').classList.remove('hidden')
+    document.querySelector('.burger-info').classList.remove('hidden')
   }
 
+  renderBurgerFormModal() {
+    const burgerDisplayDiv = document.querySelector(`.burger-display`)
+
+    if (burgerDisplayDiv.childElementCount === 0) {
+      const noIngredientsModal = document.getElementById('no-ingredients-error-modal')
+      this.showModal(noIngredientsModal)
+
+      const xBtn = document.getElementById('exit-no-ingr-modal')
+      xBtn.addEventListener('click', () => {
+        this.closeModal(noIngredientsModal)
+      })
+    } else {
+      const formModal = document.getElementById('burger-form-modal')
+      this.showModal(formModal)
+
+      const burgerForm = document.getElementById('burger-form')
+
+      burgerForm.addEventListener('submit', this.handleBurgerSubmit.bind(this))
+
+      const xBtn = document.getElementById('exit-burger-form-modal')
+      xBtn.addEventListener('click', () => {
+        this.closeModal(formModal)
+      })
+    }
+  }
+
+  showModal(modalElement) {
+    modalElement.classList.add("show")
+    modalElement.classList.add("block")
+  }
+
+  closeModal(modalElement) {
+    modalElement.classList.remove("show")
+    modalElement.classList.remove("block")
+  }
+
+  clearBurgerDisplay() {
+    document.querySelector('.burger-display').innerHTML = ''
+  }
 
 }

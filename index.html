@@ -12,23 +12,66 @@
     <script src="src/controller.js" charset="utf-8"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
     <link rel="stylesheet" href='index.css'>
   </head>
   <body>
-    <nav class="navbar navbar-light justify-content-md-center header">
-    </nav>
+    <!-- <nav class="navbar navbar-light justify-content-md-center header">
+    </nav> -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Burger Form Modal -->
+    <div class="modal fade" id="burger-form-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Don't be greedy!</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span id="exit-modal" aria-hidden="true">&times;</span>
+              <span id="exit-burger-form-modal" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body burger-form-modal-body">
+            <form id="burger-form" data-id>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Burger Name:</label>
+                <input type="text" class="form-control" id="burger-name-input">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Creator Name:</label>
+                <input type="text" class="form-control" id="burger-creator-input">
+              </div>
+              <button id="submit-button" class="btn btn-primary">Create Burger</button>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Burger Form Modal -->
+
+    <!-- Error Message Modal for when no ingredients are chosen -->
+    <div class="modal fade" id="no-ingredients-error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span id="exit-no-ingr-modal" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Need to choose at least one ingredient to call it a burger!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Error Message Modal -->
+
+    <!-- Modal for when number of ingredients exceed MAX of 10 -->
+    <div class="modal fade" id="max-ingredients-error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span id="exit-max-ingr-modal" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -37,27 +80,28 @@
         </div>
       </div>
     </div>
-    <!-- Model END -->
-
+    <!-- END Modal -->
 
     <div class='whole-page'>
-      <div class="sidenav-left"></div>
-      <div class="sidenav-right"></div>
-      <h2 id='header-name'>Make Your Burger</h2>
+      <!-- <div class="sidenav-left"></div>
+      <div class="sidenav-right"></div> -->
+      <h2 id='header-name'>Burger Maker</h2>
       <div class="container">
         <div class='row burger-maker-container justify-content-md-center'>
-            <div class='burger-display col-6'></div>
-
-            <div class="ingredients-list-container col-6 hidden">
-              <ul id='ingredients-list'></ul>
-            </div>
+          <div class='col-6'>
+            <div class='burger-display'></div>
+            <div class="burger-info hidden"></div>
+          </div>
+          <div class="ingredients-list-container col-6 hidden">
+            <ul id='ingredients-list'></ul>
+          </div>
         </div>
-        <div id='burger-form'> </div>
         <div class='burgers-list-container hidden'>
           <ul class='burgers-list row justify-content-md-center'></ul>
         </div>
       </div>
     </div>
+    <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

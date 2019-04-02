@@ -1,9 +1,16 @@
 @font-face { font-family: Balonku; src: url('Balonku.otf'); }
 
-.whole-page {
-  background-color: #edf79945;
-  height: 200vh;
+body {
+  background-color: #FFEFD5;
+  height: 100%;
 }
+
+/* .whole-page {
+  width: 100%
+} */
+/* .container {
+  max-width: 80%
+} */
 
 #header-name {
   font-family: Balonku;
@@ -11,10 +18,10 @@
   text-shadow: 3px grey;
   font-size: 90px;
   text-align: center;
-  padding-top: 20px;
+  padding: 30px;
 }
 
-ul.burgers-list {
+ul .burgers-list {
   padding-inline-start: 0;
 }
 
@@ -69,6 +76,7 @@ ul.burgers-list {
 .burgers-list-container {
   margin-top: 30px;
   padding: 0 30px;
+  text-align: center;
 }
 
 .burgers-list-container h2 {
@@ -87,7 +95,8 @@ ul.burgers-list {
 
 .burger-display {
   margin-top: 10px;
-  height: auto;
+  height: 55vh;
+  width: 100%;
   overflow: auto;
   border: 2px solid grey;
   background-color: white;
@@ -101,12 +110,14 @@ ul.burgers-list {
   right: 0;
   margin: auto;
   bottom: 50px;
-  /* background-color:   */
+  cursor: pointer;
 }
 
 #welcome-display img {
   position: static;
   margin-left: 20%;
+  margin-top: 20%;
+  cursor: pointer;
 }
 
 .burger-image-container {
@@ -126,22 +137,19 @@ ul.burgers-list {
 }
 
 /* ingredients buttons */
-.btn-outline-primary {
+.ingr-buttons {
   border-radius: 5px;
   width: 140px;
   height: 40px;
-  margin: 50px 5px;
-  border-color: #9d2437;
-  color: #9d2437;
+  margin: 30px 5px;
+  background-color: #CD5C5C;
+  border-color: #CD5C5C;
+  color: #fff;
 }
 
-.btn-outline-primary:hover {
-  background-color: #5a0505;
-  border-color: #ff0000;
-}
-
-#ingredients-list {
-
+.ingr-buttons:hover {
+  background-color: #B22222;
+  border-color: #B22222;
 }
 
 .ingredients-list-container h2 {
@@ -154,8 +162,28 @@ ul.burgers-list {
 }
 
 #ingredients-list div{
-  /* margin: 30px; */
   display: inline;
+}
+
+.two-buttons-container{
+  text-align: center;
+  margin-left: 2vh;
+}
+
+.two-buttons{
+  border-radius: 5px;
+  width: 140px;
+  height: 40px;
+  margin: 30px 5px;
+  border-color: #3CB371;
+  background-color: #3CB371;
+  color: #fff;
+}
+
+.two-buttons:hover {
+  background-color: #2E8B57;
+  border-color: #2E8B57;
+  color: #fff;
 }
 
 .hidden {
@@ -163,60 +191,82 @@ ul.burgers-list {
 }
 
 #burger-form {
-  width:50%;
+  width: 90%;
   margin: 0 auto;
 }
 
-#burger-name-input {
-  margin-right: 40px;
-  border-radius: 4;
+#submit-button {
+  float: right;
 }
 
-#burger-creator-input {
-  margin-right: 40px;
+.burger-info {
+  /* position: fixed; */
+  background-color: #eaba60;
+  width: 100%;
+  height: 55px;
+  margin-top: 5px;
+  border-radius: 25px;
+}
+
+.burger-info h2 {
+  /* display: inline; */
+  font-family: Balonku;
+  /* color: grey; */
+  /* text-shadow: 3px grey; */
+  font-size: 25px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.burger-info button {
+  position: relative;
+  float: right;
+  padding-top: 15px;
+  font-size: 20px;
+  font-family: Balonku;
 }
 
 
 
 /* Ingredient placement when being rendered to BIG DIV */
 img.ingr-placement-0 {
-  margin-bottom: 0px;
-}
-
-img.ingr-placement-1 {
-  margin-bottom: 25px;
-}
-
-img.ingr-placement-2 {
   margin-bottom: 50px;
 }
 
-img.ingr-placement-3 {
+img.ingr-placement-1 {
   margin-bottom: 75px;
 }
 
-img.ingr-placement-4 {
+img.ingr-placement-2 {
   margin-bottom: 100px;
 }
 
-img.ingr-placement-5 {
+img.ingr-placement-3 {
   margin-bottom: 125px;
 }
 
-img.ingr-placement-6 {
+img.ingr-placement-4 {
   margin-bottom: 150px;
 }
 
-img.ingr-placement-7 {
+img.ingr-placement-5 {
   margin-bottom: 175px;
 }
 
-img.ingr-placement-8 {
+img.ingr-placement-6 {
   margin-bottom: 200px;
 }
 
-img.ingr-placement-9 {
+img.ingr-placement-7 {
   margin-bottom: 225px;
+}
+
+img.ingr-placement-8 {
+  margin-bottom: 250px;
+}
+
+img.ingr-placement-9 {
+  margin-bottom: 275px;
 }
 
 
@@ -281,7 +331,6 @@ img.ingredient-image.ingr-placement-9 {
 
 
 /* SIDE NAVS */
-
 .sidenav-left {
   height: 100%;
   width: 12%;
@@ -341,4 +390,8 @@ img.ingredient-image.ingr-placement-9 {
 
 .block {
   display: block;
+}
+
+#footer {
+  margin: 100px;
 }

@@ -15,7 +15,8 @@ class Ingredient {
     let ingredientButton = document.createElement('button')
     ingredientButton.innerText = this.name
     ingredientButton.classList.add('btn')
-    ingredientButton.classList.add('btn-outline-primary')
+    ingredientButton.classList.add('btn-primary')
+    ingredientButton.classList.add('ingr-buttons')
 
     ingredientButton.addEventListener('click', () => this.renderIngredientToDisplay())
 
@@ -26,10 +27,6 @@ class Ingredient {
   renderIngredientToDisplay() {
     const burgerDisplayDiv = document.querySelector('.burger-display')
 
-    if (burgerDisplayDiv.children.length === 0) {
-      document.querySelector('#burger-form').classList.remove('hidden')
-    }
-
     if (burgerDisplayDiv.children.length < 10) {
       const ingredientImage = document.createElement('img')
       ingredientImage.src = this.image_url
@@ -39,11 +36,11 @@ class Ingredient {
 
       burgerDisplayDiv.appendChild(ingredientImage)
     } else {
-      const modal = document.getElementById('exampleModalCenter')
+      const modal = document.getElementById('max-ingredients-error-modal')
       modal.classList.add("show")
       modal.classList.add("block")
 
-      const xBtn = document.getElementById('exit-modal')
+      const xBtn = document.getElementById('exit-max-ingr-modal')
       xBtn.addEventListener('click', () => {
         modal.classList.remove("show")
         modal.classList.remove("block")
@@ -57,10 +54,6 @@ class Ingredient {
     if (burgerDisplayDiv.lastChild) {
       burgerDisplayDiv.lastChild.remove()
 	  }
-
-    if (document.querySelector('.burger-display').children.length === 0) {
-      document.querySelector('#burger-form').classList.add('hidden')
-    }
   }
 }
 
