@@ -1,8 +1,8 @@
 @font-face { font-family: Balonku; src: url('Balonku.otf'); }
 
-.whole-page {
-  background-color: #edf79945;
-  height: 200vh;
+body {
+  background-color: #FFEFD5;
+  height: 100%;
 }
 
 #header-name {
@@ -11,10 +11,10 @@
   text-shadow: 3px grey;
   font-size: 90px;
   text-align: center;
-  padding-top: 20px;
+  padding: 30px;
 }
 
-ul.burgers-list {
+ul .burgers-list {
   padding-inline-start: 0;
 }
 
@@ -102,12 +102,14 @@ ul.burgers-list {
   right: 0;
   margin: auto;
   bottom: 50px;
+  cursor: pointer;
 }
 
 #welcome-display img {
   position: static;
   margin-left: 20%;
   margin-top: 20%;
+  cursor: pointer;
 }
 
 .burger-image-container {
