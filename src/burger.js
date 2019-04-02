@@ -74,6 +74,10 @@ class Burger {
   }
 
   renderUpdatedBurger() {
+    this.clearBurgerForm()
+    this.clearBurgerDisplayDiv()
+    this.clearBurgerInfoDiv()
+
     const burgerDiv = document.querySelector(`#burger-${this.id}`)
 
     burgerDiv.children[0].innerText = this.name
@@ -81,10 +85,6 @@ class Burger {
 
     document.querySelector(`.burger-image-${this.id}`).remove()
     burgerDiv.insertBefore(this.renderBurgerImage(), burgerDiv.children[2])
-
-    this.clearBurgerForm()
-    this.clearBurgerDisplayDiv()
-    this.clearBurgerInfoDiv()
   }
 
   renderBurgerImage() {
