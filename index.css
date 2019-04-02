@@ -190,12 +190,21 @@ ul.burgers-list {
 }
 
 .burger-info h2 {
+  /* display: inline; */
   font-family: Balonku;
   color: grey;
   text-shadow: 3px grey;
   font-size: 25px;
-  margin-top: 15px;
+  padding-top: 15px;
   text-align: center;
+}
+
+.burger-info button {
+  position: relative;
+  float: right;
+  padding-top: 15px;
+  font-size: 20px;
+  font-family: Balonku;
 }
 
 

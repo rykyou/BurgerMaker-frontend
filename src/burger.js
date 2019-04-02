@@ -97,8 +97,9 @@ class Burger {
 	  }
 
     const burgerInfoDiv = document.querySelector('.burger-info')
-    burgerInfoDiv.removeChild(burgerInfoDiv.firstElementChild)
-    
+    while (burgerInfoDiv.firstChild) {
+      burgerInfoDiv.removeChild(burgerInfoDiv.firstChild)
+    }
   }
 
   renderBurgerImage() {
@@ -156,9 +157,14 @@ class Burger {
 
     ////// burger-info div ///////
     const burgerInfoDiv = document.querySelector('.burger-info')
-    if (burgerInfoDiv.firstElementChild) {
-      burgerInfoDiv.removeChild(burgerInfoDiv.firstElementChild)
+    while (burgerInfoDiv.firstChild) {
+      burgerInfoDiv.removeChild(burgerInfoDiv.firstChild)
     }
+    const xButton = document.createElement('button')
+    xButton.innerText = "X"
+    xButton.classList.add('btn')
+    xButton.addEventListener('click', () => this.handleXButtonClickOnBurgerInfo())
+    burgerInfoDiv.append(xButton)
     const burgerInfoH2 = document.createElement('h2')
     burgerInfoH2.innerText = `${burgerDiv.children[0].innerText} by ${burgerDiv.children[1].innerText}`
     burgerInfoDiv.append(burgerInfoH2)
@@ -173,10 +179,45 @@ class Burger {
     submitButton.innerText = 'Save Burger'
   }
 
+  handleXButtonClickOnBurgerInfo() {
+    const burgerDisplayDiv = document.querySelector('.burger-display')
+    while (burgerDisplayDiv.firstChild) {
+      burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)
+    }
+
+    const burgerInfoDiv = document.querySelector('.burger-info')
+    while (burgerInfoDiv.firstChild) {
+      burgerInfoDiv.removeChild(burgerInfoDiv.firstChild)
+    }
+
+    const burgerForm = document.querySelector('form')
+    burgerForm.dataset.id = ''
+    burgerForm.reset()
+    const submitButton = document.querySelector('#submit-button')
+    submitButton.innerText = 'Create Burger'
+  }
+
   handleDeleteButton(id){
     fetch(`http://localhost:3000/burgers/${id}`, {
       method: 'DELETE'
     }).then(document.querySelector(`#burger-${id}`).remove())
+      .then(something => {
+        const burgerDisplayDiv = document.querySelector('.burger-display')
+        while (burgerDisplayDiv.firstChild) {
+          burgerDisplayDiv.removeChild(burgerDisplayDiv.firstChild)
+        }
+
+        const burgerInfoDiv = document.querySelector('.burger-info')
+        while (burgerInfoDiv.firstChild) {
+          burgerInfoDiv.removeChild(burgerInfoDiv.firstChild)
+        }
+
+        const burgerForm = document.querySelector('form')
+        burgerForm.dataset.id = ''
+        burgerForm.reset()
+        const submitButton = document.querySelector('#submit-button')
+        submitButton.innerText = 'Create Burger'
+      })
   }
 }
 
