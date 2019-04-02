@@ -139,7 +139,8 @@ class Controller {
 
     document.querySelector('.ingredients-list-container').classList.remove('hidden')
     document.querySelector('.burgers-list-container').classList.remove('hidden')
-    document.querySelector('.burger-info').classList.remove('hidden')
+    document.querySelector('.burger-info-1').classList.remove('hidden')
+    document.querySelector('.burger-info-2').classList.remove('hidden')
   }
 
   renderBurgerFormModal() {

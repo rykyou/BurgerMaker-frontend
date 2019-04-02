@@ -133,15 +133,19 @@ class Burger {
 
     ////// burger-info div ///////
     this.clearBurgerInfoDiv()
-    const burgerInfoDiv = document.querySelector('.burger-info')
+    const burgerNameInfoDiv = document.querySelector('.burger-info-1')
+    const burgerCreatorInfoDiv = document.querySelector('.burger-info-2')
     const xButton = document.createElement('button')
     xButton.innerText = "X"
     xButton.classList.add('btn')
     xButton.addEventListener('click', () => this.handleXButtonClickOnBurgerInfo())
-    burgerInfoDiv.append(xButton)
-    const burgerInfoH2 = document.createElement('h2')
-    burgerInfoH2.innerText = `${burgerDiv.children[0].innerText} by ${burgerDiv.children[1].innerText}`
-    burgerInfoDiv.append(burgerInfoH2)
+    burgerNameInfoDiv.append(xButton)
+    const burgerNameH2 = document.createElement('h2')
+    burgerNameH2.innerText = `${burgerDiv.children[0].innerText}`
+    const burgerCreatorH2 = document.createElement('h2')
+    burgerCreatorH2.innerText = `by ${burgerDiv.children[1].innerText}`
+    burgerNameInfoDiv.append(burgerNameH2)
+    burgerCreatorInfoDiv.append(burgerCreatorH2)
     //////////////////////////////
 
     const burgerNameInput = document.querySelector('#burger-name-input')
@@ -184,7 +188,8 @@ class Burger {
   }
 
   clearBurgerInfoDiv() {
-    document.querySelector('.burger-info').innerHTML = ''
+    document.querySelector('.burger-info-1').innerHTML = ''
+    document.querySelector('.burger-info-2').innerHTML = ''
   }
 }
 
