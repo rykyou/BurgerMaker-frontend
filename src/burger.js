@@ -1,3 +1,6 @@
+BASE_URL = 'https://fun-burger-maker.herokuapp.com'
+
+
 class Burger {
   constructor(id, name, owner_name, ingredients) {
     this.id = id
@@ -56,7 +59,7 @@ class Burger {
   }
 
   update() {
-    fetch(`http://localhost:3000/burgers/${this.id}`, {
+    fetch(`${BASE_URL}/burgers/${this.id}`, {
       method: 'PATCH',
       headers: {
         "Content-Type": "application/json",
@@ -164,7 +167,7 @@ class Burger {
   }
 
   handleDeleteButton(id){
-    fetch(`http://localhost:3000/burgers/${id}`, {
+    fetch(`${BASE_URL}/burgers/${id}`, {
       method: 'DELETE'
     }).then(document.querySelector(`#burger-${id}`).remove())
       .then(x => {

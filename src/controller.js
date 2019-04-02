@@ -1,9 +1,11 @@
+BASE_URL = 'https://fun-burger-maker.herokuapp.com'
+
 class Controller {
   constructor() {
   }
 
   getAllIngredients() {
-    fetch(`http://localhost:3000/ingredients`)
+    fetch(`${BASE_URL}/ingredients`)
     .then(res => res.json())
     .then(json => {
       const h2 = document.createElement('h2')
@@ -39,7 +41,7 @@ class Controller {
   }
 
   getAllBurgers() {
-    fetch(`http://localhost:3000/burgers`)
+    fetch(`${BASE_URL}/burgers`)
     .then(res => res.json())
     .then(json => {
       const h2 = document.createElement('h2')
@@ -55,7 +57,7 @@ class Controller {
   }
 
   createBurger(burgerObj) {
-    fetch(`http://localhost:3000/burgers`, {
+    fetch(`${BASE_URL}/burgers`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
