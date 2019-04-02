@@ -5,6 +5,13 @@ body {
   height: 100%;
 }
 
+/* .whole-page {
+  width: 100%
+} */
+/* .container {
+  max-width: 80%
+} */
+
 #header-name {
   font-family: Balonku;
   color: grey;
@@ -69,6 +76,7 @@ ul .burgers-list {
 .burgers-list-container {
   margin-top: 30px;
   padding: 0 30px;
+  text-align: center;
 }
 
 .burgers-list-container h2 {
@@ -190,6 +198,12 @@ ul .burgers-list {
 #submit-button {
   float: right;
 }
+
+/* .burger-info {
+  background-color: white;
+  height: 90%;
+  width: 90;
+} */
 
 .burger-info h2 {
   /* display: inline; */
@@ -373,4 +387,8 @@ img.ingredient-image.ingr-placement-9 {
 
 .block {
   display: block;
+}
+
+#footer {
+
 }
