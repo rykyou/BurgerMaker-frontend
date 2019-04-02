@@ -199,17 +199,20 @@ ul .burgers-list {
   float: right;
 }
 
-/* .burger-info {
-  background-color: white;
-  height: 90%;
-  width: 90;
-} */
+.burger-info {
+  /* position: fixed; */
+  background-color: #eaba60;
+  width: 100%;
+  height: 55px;
+  margin-top: 5px;
+  border-radius: 25px;
+}
 
 .burger-info h2 {
   /* display: inline; */
   font-family: Balonku;
-  color: grey;
-  text-shadow: 3px grey;
+  /* color: grey; */
+  /* text-shadow: 3px grey; */
   font-size: 25px;
   padding-top: 15px;
   text-align: center;
@@ -390,5 +393,5 @@ img.ingredient-image.ingr-placement-9 {
 }
 
 #footer {
-
+  margin: 100px;
 }
